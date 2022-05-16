@@ -149,12 +149,12 @@ public class CargoModule {
 		
 		driver.findElement(By.id("Tquantitymanifested")).sendKeys("100"+Keys.TAB);
 		
-		((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 4000)", "");
+		((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 1000)", "");
 		
 		driver.findElement(By.id("OriginPort")).sendKeys("%%"+Keys.TAB);
 		
 		driver.findElement(By.cssSelector("#submit10[title='Create'][class='mcbutton']")).click();
-		((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 4000)", "");
+		((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 3000)", "");
 		driver.findElement(By.cssSelector("#cancel[value='Back']")).click();
 		
 	}
@@ -164,12 +164,6 @@ public class CargoModule {
 		((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 1000)", "");
 		driver.findElement(By.id("btnReqForSubJourney")).click();
 		
-//		wait.until(ExpectedConditions.alertIsPresent());
-//		
-//		Alert alert=driver.switchTo().alert();
-//		System.out.println(alert.getText());
-//		driver.findElement(By.id("chkJourneySubmit")).click();
-//		alert.accept();
 		switchToWindow();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("chkJourneySubmit")));
 		driver.findElement(By.id("chkJourneySubmit")).click();

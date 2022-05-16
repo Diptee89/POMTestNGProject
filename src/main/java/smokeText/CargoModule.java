@@ -127,48 +127,51 @@ public class CargoModule {
 
 		driver.findElement(By.id("okbutton")).click();
 	}
-	
+
 	public static void createBL(String billNo) {
-		WebElement eNewbtn=driver.findElement(By.cssSelector("input#new1[title='Create New Bill Of Lading'][class='mcbutton']"));
-		
+		WebElement eNewbtn = driver
+				.findElement(By.cssSelector("input#new1[title='Create New Bill Of Lading'][class='mcbutton']"));
+
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", eNewbtn);
-		
+
 		eNewbtn.click();
-		
-		driver.findElement(By.cssSelector("#billnumber[name='billnumber'][Attribute='HouseBillNumber']")).sendKeys(billNo);
-		
+
+		driver.findElement(By.cssSelector("#billnumber[name='billnumber'][Attribute='HouseBillNumber']"))
+				.sendKeys(billNo);
+
 		driver.findElement(By.cssSelector("#housebilldateDatePicker[class='mcCalendarButton']")).click();
 		driver.findElement(By.cssSelector(".Fx50CalenderCurrentDate")).click();
 
 //		Goods Details
-		driver.findElement(By.cssSelector("#UnregisteredConsignee[Attribute='UnregisteredConsignee']")).sendKeys("Alex MD Husain");
-		
+		driver.findElement(By.cssSelector("#UnregisteredConsignee[Attribute='UnregisteredConsignee']"))
+				.sendKeys("Alex MD Husain");
+
 		driver.findElement(By.id("description")).sendKeys("Oil");
-		
-		driver.findElement(By.id("Tgweight")).sendKeys("100"+Keys.TAB);
-		
-		driver.findElement(By.id("Tquantitymanifested")).sendKeys("100"+Keys.TAB);
-		
+
+		driver.findElement(By.id("Tgweight")).sendKeys("100" + Keys.TAB);
+
+		driver.findElement(By.id("Tquantitymanifested")).sendKeys("100" + Keys.TAB);
+
 		((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 1000)", "");
-		
-		driver.findElement(By.id("OriginPort")).sendKeys("%%"+Keys.TAB);
-		
+
+		driver.findElement(By.id("OriginPort")).sendKeys("%%" + Keys.TAB);
+
 		driver.findElement(By.cssSelector("#submit10[title='Create'][class='mcbutton']")).click();
 		((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 3000)", "");
 		driver.findElement(By.cssSelector("#cancel[value='Back']")).click();
-		
+
 	}
-	
+
 	public static void submitManifest() {
 		driver.findElement(By.id("ManualRemarks")).sendKeys("Submitted");
 		((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 1000)", "");
 		driver.findElement(By.id("btnReqForSubJourney")).click();
-		
+
 		switchToWindow();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("chkJourneySubmit")));
 		driver.findElement(By.id("chkJourneySubmit")).click();
-		
+
 		driver.findElement(By.id("btnOk")).click();
-		 driver.switchTo().window(MainWindow);
+		driver.switchTo().window(MainWindow);
 	}
 }

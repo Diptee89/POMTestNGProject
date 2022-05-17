@@ -29,17 +29,17 @@ public class CargoModule {
 		login("nas.csa", "fx5test");
 
 		clickCargoMenu();
-		createManifest("00007");
-		confirmation();
-		createBL("HBL/0005/KWI22");
-		submitManifest();
-		confirmation();
+//		createManifest("00007");
+//		confirmation();
+//		createBL("HBL/0005/KWI22");
+//		submitManifest();
+//		confirmation();
 //		driver.close();
 
 	}
 
 	public static void setUP() {
-		System.setProperty("webdriver.ie.driver", "c:\\IEDriverServer.exe");
+		System.setProperty("webdriver.ie.driver", "c:\\Drivers\\IEDriverServer.exe");
 		driver = new InternetExplorerDriver();
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));

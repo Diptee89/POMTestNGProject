@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-05-17T20:57:42 IST" name="Default suite" finished-at="2022-05-17T20:59:58 IST" duration-ms="135330">
+    <groups>
+    </groups>
+    <test started-at="2022-05-17T20:57:42 IST" name="Default test" finished-at="2022-05-17T20:59:58 IST" duration-ms="135330">
+      <class name="test.CargoTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:test.CargoTest@48f278eb]" started-at="2022-05-17T20:57:43 IST" name="setUp" finished-at="2022-05-17T20:57:58 IST" duration-ms="15526" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLogin_ValidUser()[pri:0, instance:test.CargoTest@48f278eb]" started-at="2022-05-17T20:57:58 IST" name="testLogin_ValidUser" finished-at="2022-05-17T20:58:13 IST" duration-ms="14662" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin_ValidUser -->
+        <test-method signature="testManifest()[pri:1, instance:test.CargoTest@48f278eb]" started-at="2022-05-17T20:58:13 IST" name="testManifest" finished-at="2022-05-17T20:59:58 IST" duration-ms="105074" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testManifest -->
+      </class> <!-- test.CargoTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

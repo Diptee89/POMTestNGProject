@@ -22,36 +22,33 @@ public class LoginPage {
 	private By usernameBy = By.cssSelector("input.FX50loginPanelTextBox");
 	private By passwordBy = By.cssSelector("#sUserPassword");
 	private By signinBy = By.cssSelector(".FX50loginPanelLoginButton");
-//	private By titleTextBy= By.cssSelector(".FX50loginPanelVerticalHeaderLabel");
-	
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
 	}
 
 	// Set user name in textbox
-	public void setUserName(String strUserName) {
-		WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(10));
+	private void setUserName(String strUserName) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(usernameBy));
 		WebElement field = driver.findElement(usernameBy);
 		clearAndType(field, strUserName);
 	}
 
 	// Set password in password textbox
-	public void setPassword(String strPassword) {
+	private void setPassword(String strPassword) {
 //		WebElement field = driver.findElement(passwordBy);
 //		clearAndType(field, strPassword);
 		driver.findElement(passwordBy).click();
 	}
 	// Click on login button
 
-	public void clickLogin() {
+	private void clickLogin() {
 
 		driver.findElement(signinBy).click();
 	}
 	// Get the title of Login Page
 
-	
 	/**
 	 * Login as valid user
 	 *
@@ -60,7 +57,7 @@ public class LoginPage {
 	 * @return HomePage object
 	 */
 	public void loginValidUser(String strUserName, String strPasword) {
-		
+
 		// Fill user name
 
 		this.setUserName(strUserName);
@@ -78,5 +75,5 @@ public class LoginPage {
 		field.clear();
 		field.sendKeys(text);
 	}
-	
+
 }

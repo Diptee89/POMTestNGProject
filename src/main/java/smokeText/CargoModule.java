@@ -28,7 +28,7 @@ public class CargoModule {
 		setUP();
 		login("nas.csa", "fx5test");
 
-		clickCargoMenu();
+//		clickCargoMenu();
 //		createManifest("00007");
 //		confirmation();
 //		createBL("HBL/0005/KWI22");

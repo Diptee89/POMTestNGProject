@@ -9,11 +9,14 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import pages.HomePage;
 import pages.HouseBillPage;
+import pages.LogOutPage;
 import pages.LoginPage;
 import pages.ManifestInformationPage;
 import pages.ManifestListPage;
@@ -24,16 +27,14 @@ import pages.ManifestListPage;
 public class CargoTest {
 	String driverPath = "c:\\Drivers\\IEDriverServer.exe";
 	protected WebDriver driver;
-	protected WebDriverWait wait;
-	protected Actions act;
+	LoginPage objLogin;
 
 	@BeforeTest
 	public void setUp() {
 		System.setProperty("webdriver.ie.driver", driverPath);
 		driver = new InternetExplorerDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		act = new Actions(driver);
+		
 
 		driver.get("http://10.138.108.44/MCKWFX5TEST/Main.aspx");
 		System.out.println(driver.getTitle());
@@ -76,9 +77,10 @@ public class CargoTest {
 		System.out.println(objHome.getloggedInUserLabel() + ": " + objHome.getLoggedInUserID());
 
 		System.out.println("Default port is " + objHome.getLoginPortName());
+		
 	}
 
-	@Test(priority = 1)
+//	@Test(priority = 1)
 	public void testManifest() {
 		ManifestListPage objMNFList = new ManifestListPage(driver);
 		ManifestInformationPage objMNFInfo = new ManifestInformationPage(driver);
@@ -89,5 +91,14 @@ public class CargoTest {
 		objHBL.createBL("HBL/0009/KWI22");
 		objMNFInfo.submitManifest();
 
+	}
+	@AfterMethod
+	public void logOut(){
+		LogOutPage objLogOut=new LogOutPage(driver);
+		objLogOut.logOutUser();
+		}
+	@AfterTest
+	public void close(){
+		driver.close();
 	}
 }

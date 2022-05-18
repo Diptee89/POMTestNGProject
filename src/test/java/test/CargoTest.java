@@ -2,15 +2,11 @@ package test;
 
 import java.time.Duration;
 import java.util.Iterator;
+import java.util.Random;
 import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -27,14 +23,46 @@ import pages.ManifestListPage;
 public class CargoTest {
 	String driverPath = "c:\\Drivers\\IEDriverServer.exe";
 	protected WebDriver driver;
-	LoginPage objLogin;
+
+	@Test(priority = 0)
+	public void testManifest() {
+		
+		ManifestListPage objMNFList = new ManifestListPage(driver);
+		ManifestInformationPage objMNFInfo = new ManifestInformationPage(driver);
+		HouseBillPage objHBL = new HouseBillPage(driver);
+		
+//		Create and Submit Manifest
+		login_ValidUser("nas.csa", "fx5test");
+		objMNFList.clickCargoMenu();
+		objMNFList.clickNew();
+		objMNFInfo.createManifest("WED04");
+		objHBL.createBL("HBL/WED04/KWI22");
+		objMNFInfo.submitManifest();
+		logOut();
+		
+//		Approve Manifest
+		login_ValidUser("cmanifest.kwi", "fx5test");
+		objMNFList.clickCargoMenu();
+		objMNFList.searchWithTempNo(objMNFInfo.tempManifestNo);		//"TMRN/8655/KWI22"
+		objMNFList.clickTempNo();
+		objMNFInfo.approveManifest();
+		logOut();
+		
+//		Issue DO
+		login_ValidUser("nas.csa", "fx5test");
+		objMNFList.clickCargoMenu();
+		objMNFList.searchWithTempNo(objMNFInfo.tempManifestNo);	
+//		objMNFList.seachWithManifestNo(objMNFInfo.manifestNo);//   "MRN/7346/KWI22"
+		objMNFList.clickTempNo();
+		objMNFInfo.issueDOs();
+		logOut();
+	}
 
 	@BeforeTest
 	public void setUp() {
 		System.setProperty("webdriver.ie.driver", driverPath);
 		driver = new InternetExplorerDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		
 
 		driver.get("http://10.138.108.44/MCKWFX5TEST/Main.aspx");
 		System.out.println(driver.getTitle());
@@ -43,7 +71,7 @@ public class CargoTest {
 
 	public void switchToWindow() {
 		String MainWindow = driver.getWindowHandle();
-		System.out.println("Parent Winodow ID: " + MainWindow);
+//		System.out.println("Parent Winodow ID: " + MainWindow);
 		Set<String> s1 = driver.getWindowHandles();
 		Iterator<String> i1 = s1.iterator();// to fetch the value iterator() will return from the collection object
 
@@ -51,7 +79,7 @@ public class CargoTest {
 			String ChildWindow = i1.next();
 
 			if (!MainWindow.equalsIgnoreCase(ChildWindow)) {
-				System.out.println("Child Winodow ID: " + ChildWindow);
+//				System.out.println("Child Winodow ID: " + ChildWindow);
 				// Switching to Child window
 				driver.switchTo().window(ChildWindow);
 
@@ -59,46 +87,31 @@ public class CargoTest {
 		}
 	}
 
-	@Test(priority = 0)
-	public void testLogin_ValidUser() {
-
+//	@AfterTest
+	public void close() {
+		driver.close();
+	}
+	public void login_ValidUser(String id, String pass) {
 		// Create Login Page object
 		LoginPage objLogin = new LoginPage(driver);
-
-		// Verify login page title
-
-		objLogin.loginValidUser("nas.csa", "fx5test");
-
+		objLogin.loginValidUser(id, pass);
 		// Create Home Page Object
 		HomePage objHome = new HomePage(driver);
-
 		// Verify home page
-		Assert.assertTrue(objHome.getLoggedInUserID().toUpperCase().contains("NAS.CSA"));
+//		Assert.assertTrue(objHome.getLoggedInUserID().toUpperCase().contains("NAS.CSA"));
 		System.out.println(objHome.getloggedInUserLabel() + ": " + objHome.getLoggedInUserID());
-
 		System.out.println("Default port is " + objHome.getLoginPortName());
-		
 	}
 
-//	@Test(priority = 1)
-	public void testManifest() {
-		ManifestListPage objMNFList = new ManifestListPage(driver);
-		ManifestInformationPage objMNFInfo = new ManifestInformationPage(driver);
-		HouseBillPage objHBL = new HouseBillPage(driver);
-
-		objMNFList.clickCargoMenu();
-		objMNFInfo.createManifest("00009");
-		objHBL.createBL("HBL/0009/KWI22");
-		objMNFInfo.submitManifest();
-
-	}
-	@AfterMethod
-	public void logOut(){
-		LogOutPage objLogOut=new LogOutPage(driver);
+	public void logOut() {
+		LogOutPage objLogOut = new LogOutPage(driver);
 		objLogOut.logOutUser();
-		}
-	@AfterTest
-	public void close(){
-		driver.close();
+	}
+	public static int generateRandomInt()
+	{
+		Random rand = new Random();
+		int value = rand.nextInt(10000);
+		
+		return value;
 	}
 }

@@ -35,6 +35,14 @@ public class HouseBillPage {
 		eNewbtn.click();
 
 		driver.findElement(houseBillNoBy).sendKeys(billNo);
+//		txtVesselName.clear();
+//		Random rand = new Random();
+//		int value = rand.nextInt(1000);
+//		String gShipName = Integer.toString(value);
+//
+//		txtVesselName.sendKeys(testData + gShipName);
+//		shipName = testData + gShipName;
+//		System.out.println("GetText " + shipName);
 
 		driver.findElement(housebilldateDatePickerBy).click();
 		driver.findElement(calenderCurrentDateBy).click();

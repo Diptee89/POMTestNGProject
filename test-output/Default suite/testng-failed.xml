@@ -6,7 +6,8 @@
       <class name="test.CargoTest">
         <methods>
           <include name="setUp"/>
-          <include name="testManifest"/>
+          <include name="logOut"/>
+          <include name="testLogin_ValidUser"/>
         </methods>
       </class> <!-- test.CargoTest -->
     </classes>

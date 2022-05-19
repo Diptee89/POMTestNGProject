@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.Random;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -8,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+@SuppressWarnings("unused")
 public class HouseBillPage {
 	protected WebDriver driver;
 
@@ -27,22 +30,9 @@ public class HouseBillPage {
 		this.driver = driver;
 	}
 
-	public void createBL(String billNo) {
-		WebElement eNewbtn = driver.findElement(newBy);
-
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", eNewbtn);
-
-		eNewbtn.click();
-
-		driver.findElement(houseBillNoBy).sendKeys(billNo);
-//		txtVesselName.clear();
-//		Random rand = new Random();
-//		int value = rand.nextInt(1000);
-//		String gShipName = Integer.toString(value);
-//
-//		txtVesselName.sendKeys(testData + gShipName);
-//		shipName = testData + gShipName;
-//		System.out.println("GetText " + shipName);
+	public void createBL() {
+		clickNew();
+		setHouseBill();
 
 		driver.findElement(housebilldateDatePickerBy).click();
 		driver.findElement(calenderCurrentDateBy).click();
@@ -64,5 +54,23 @@ public class HouseBillPage {
 		((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 3000)", "");
 		driver.findElement(backBy).click();
 
+	}
+
+	private void clickNew() {
+		WebElement eNewbtn = driver.findElement(newBy);
+
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", eNewbtn);
+
+		eNewbtn.click();
+	}
+
+	private void setHouseBill() {
+		WebElement txtHBL = driver.findElement(houseBillNoBy);
+//		txtHBL.clear();
+		Random rand = new Random();
+		int value = rand.nextInt(10000);
+		String HBL = Integer.toString(value);
+
+		txtHBL.sendKeys("HBL/" + HBL+"/KWI");
 	}
 }

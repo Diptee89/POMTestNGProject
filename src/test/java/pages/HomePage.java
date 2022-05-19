@@ -2,7 +2,9 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+ 
 
+@SuppressWarnings("unused")
 public class HomePage {
 	protected WebDriver driver;
 	private By loginPortNameBy = By.cssSelector("#LoginPortNameLabel");

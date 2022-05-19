@@ -3,6 +3,7 @@ package pages;
 import java.sql.Driver;
 import java.time.Duration;
 import java.util.Iterator;
+import java.util.Random;
 import java.util.Set;
 
 import org.openqa.selenium.By;
@@ -13,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+@SuppressWarnings("unused")
 public class ManifestInformationPage {
 	protected WebDriver driver;
 	String MainWindow;
@@ -53,12 +55,12 @@ public class ManifestInformationPage {
 		this.driver = driver;
 	}
 
-	public void createManifest(String flightNo) {
+	public void createManifest() {
 		setOriginPort();
 		selectExpectedArrivalDate();
 		selectArrivaldate();
 		setVesselName();
-		setFlightNo(flightNo);
+		setFlightNo();
 		setRemarks();
 		clickCreatebtn();
 		confirmation();
@@ -159,17 +161,16 @@ public class ManifestInformationPage {
 		driver.findElement(vesselNameBy).sendKeys("TNT" + Keys.ENTER);
 	}
 
-	private void setFlightNo(String strFlightNo) {
-		driver.findElement(flightNoBy).sendKeys(strFlightNo + Keys.ENTER);
-//		txtVesselName.clear();
-//		Random rand = new Random();
-//		int value = rand.nextInt(1000);
-//		String gShipName = Integer.toString(value);
-//
-//		txtVesselName.sendKeys(testData + gShipName);
-//		shipName = testData + gShipName;
-//		System.out.println("GetText " + shipName);
-	}
+	private void setFlightNo() {
+//		driver.findElement(flightNoBy).sendKeys(strFlightNo + Keys.ENTER);
+
+		WebElement txtFlightNo=driver.findElement(flightNoBy);
+		Random rand = new Random();
+		int value = rand.nextInt(10000);
+		String flightNo = Integer.toString(value);
+
+		txtFlightNo.sendKeys(flightNo+ Keys.ENTER);
+}
 
 	private void setRemarks() {
 		driver.findElement(remarksBy).sendKeys("Created By Selenium Automation For Testing");

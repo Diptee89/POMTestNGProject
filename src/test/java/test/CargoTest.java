@@ -35,8 +35,8 @@ public class CargoTest {
 		login_ValidUser("nas.csa", "fx5test");
 		objMNFList.clickCargoMenu();
 		objMNFList.clickNew();
-		objMNFInfo.createManifest("WED04");
-		objHBL.createBL("HBL/WED04/KWI22");
+		objMNFInfo.createManifest();
+		objHBL.createBL();
 		objMNFInfo.submitManifest();
 		logOut();
 		

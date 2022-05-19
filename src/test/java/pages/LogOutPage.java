@@ -2,7 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+@SuppressWarnings("unused")
 public class LogOutPage {
 	protected WebDriver driver;
 

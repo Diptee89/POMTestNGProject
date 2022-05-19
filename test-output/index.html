@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\dsingh\AppData\Local\Temp\testng-eclipse--689556173\testng-customsuite.xml</span>
+                    <span>C:\Users\dsingh\AppData\Local\Temp\testng-eclipse-1688343030\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -104,7 +104,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="test.CargoTest" class="method navigator-link" hash-for-method="testManifest">testManifest</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="test.TestClass" class="method navigator-link" hash-for-method="testManifest">testManifest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -122,7 +122,7 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">test.CargoTest</span>
+              <span class="class-name">test.TestClass</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -130,14 +130,13 @@
                   <a name="testManifest">
                   </a> <!-- testManifest -->
                   <span class="method-name">testManifest</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //div[@id=&apos;vwr_TmpJourneyNumber&apos; and @class=&apos;update-text-node&apos;]
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+                  <div class="stack-trace">org.openqa.selenium.NoSuchWindowException: Currently focused window has been closed.
 Build info: version: &apos;4.1.4&apos;, revision: &apos;535d840ee2&apos;
 System info: host: &apos;INHYDLDSINGH2&apos;, ip: &apos;10.138.117.168&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.15&apos;
 Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Command: [90fb3f24-4569-433b-ab5e-075ef945c384, findElement {using=xpath, value=//div[@id=&apos;vwr_TmpJourneyNumber&apos; and @class=&apos;update-text-node&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.edgechromium: false, ie.edgepath: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:54645/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 90fb3f24-4569-433b-ab5e-075ef945c384
+Command: [0b3baeb7-e1d8-4ee3-b5ee-393291bdc82e, findElement {using=css selector, value=#OriginPort}]
+Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.edgechromium: false, ie.edgepath: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:62285/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 0b3baeb7-e1d8-4ee3-b5ee-393291bdc82e
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -153,9 +152,9 @@ Session ID: 90fb3f24-4569-433b-ab5e-075ef945c384
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:385)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:377)
-	at pages.ManifestInformationPage.confirmation(ManifestInformationPage.java:97)
-	at pages.ManifestInformationPage.submitManifest(ManifestInformationPage.java:73)
-	at test.CargoTest.testManifest(CargoTest.java:40)
+	at pages.ManifestInformationPage.setOriginPort(ManifestInformationPage.java:147)
+	at pages.ManifestInformationPage.createManifest(ManifestInformationPage.java:59)
+	at test.TestClass.testManifest(TestClass.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -193,7 +192,7 @@ Session ID: 90fb3f24-4569-433b-ab5e-075ef945c384
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\dsingh\AppData\Local\Temp\testng-eclipse--689556173\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\dsingh\AppData\Local\Temp\testng-eclipse-1688343030\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -202,7 +201,7 @@ Session ID: 90fb3f24-4569-433b-ab5e-075ef945c384
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;test.CargoTest&quot;/&gt;
+      &lt;class name=&quot;test.TestClass&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -245,13 +244,13 @@ data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testManifest')
-data.setCell(0, 2, 'test.CargoTest')
-data.setCell(0, 3, 123885);
+data.setCell(0, 2, 'test.TestClass')
+data.setCell(0, 3, 27720);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 27 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -277,7 +276,7 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">test.CargoTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">test.TestClass</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
@@ -286,8 +285,14 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">testManifest</span>
-                <span class="method-start">17131 ms</span>
+                <span class="method-start">16703 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">close</span>
+                <span class="method-start">44471 ms</span>
+              </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

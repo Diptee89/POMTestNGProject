@@ -5,8 +5,7 @@
     <classes>
       <class name="test.TestClass">
         <methods>
-          <include name="testManifest"/>
-          <include name="close"/>
+          <include name="testBayan"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- test.TestClass -->

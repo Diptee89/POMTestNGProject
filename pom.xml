@@ -3,6 +3,7 @@
 	<groupId>aspx.KGAC</groupId>
 	<artifactId>KGACProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
@@ -10,12 +11,16 @@
 			<artifactId>selenium-java</artifactId>
 			<version>4.1.4</version>
 		</dependency>
+
+
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>7.4.0</version>
-
 		</dependency>
+		
+		
+		
 		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
 		<dependency>
 			<groupId>org.slf4j</groupId>

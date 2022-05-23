@@ -1,27 +1,21 @@
-package pages;
+package com.pages;
 
-import java.sql.Driver;
 import java.time.Duration;
-import java.util.Iterator;
 import java.util.Random;
-import java.util.Set;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-@SuppressWarnings("unused")
-public class ManifestInformationPage {
-	protected WebDriver driver;
-	String MainWindow;
-	public String tempManifestNo;
-	public String manifestNo;
-	public String doNumber;
+import com.base.TestBase;
 
+//@SuppressWarnings("unused")
+public class ManifestInformationPage extends TestBase {
+	public ManifestInformationPage(WebDriver driver) {
+		this.driver = driver;
+	}
 //	private By newButtonBy = By.xpath("//input[@id='new1' and @title='Create New Manifest']");
 	private By originPortBy = By.cssSelector("#OriginPort");
 	private By expectedArrivalDateDatePickerBy = By.cssSelector("#ExpectedArrivalDateDatePicker");
@@ -44,16 +38,12 @@ public class ManifestInformationPage {
 
 //	Approve Submission Request
 	private By approveBy = By.name("ArrivedSubmitJourney");
-	private By manifestNoBy=By.id("vwr_JourneyNumber");
-	
-//	Issue DO
-	private By chkAllBy=By.id("chkallEQ");
-	private By issueDOsBy=By.id("btnIssueDO");
-	private By doNoBy=By.xpath("//td[@id='List_ViewBillsFromManifestLs_0_cell_DONO']/a");
+	private By manifestNoBy = By.id("vwr_JourneyNumber");
 
-	public ManifestInformationPage(WebDriver driver) {
-		this.driver = driver;
-	}
+//	Issue DO
+	private By chkAllBy = By.id("chkallEQ");
+	private By issueDOsBy = By.id("btnIssueDO");
+	private By doNoBy = By.xpath("//td[@id='List_ViewBillsFromManifestLs_0_cell_DONO']/a");
 
 	public void createManifest() {
 		setOriginPort();
@@ -80,13 +70,14 @@ public class ManifestInformationPage {
 		approveConf();
 //		clickBackbtn();
 	}
+
 	public void issueDOs() {
-		driver.findElement(chkAllBy).click();
-		driver.findElement(issueDOsBy).click();
-		WebElement e=driver.findElement(doNoBy);
-		doNumber=e.getText();
-		System.out.println("DO Number: "+doNumber);
-//		driver.findElement(doNoBy).click();
+		findElement(chkAllBy).click();
+		findElement(issueDOsBy).click();
+		WebElement e = findElement(doNoBy);
+		doNumber = e.getText();
+		System.out.println("DO Number: " + doNumber);
+//		findElement(doNoBy).click();
 	}
 
 	/*
@@ -94,24 +85,24 @@ public class ManifestInformationPage {
 	 * 
 	 */
 	private void confirmation() {
-		WebElement eTempManifestNo = driver.findElement(tempJourneyNumberBy);
+		WebElement eTempManifestNo = findElement(tempJourneyNumberBy);
 		tempManifestNo = eTempManifestNo.getText();
 
 		System.out.println("Temporary Manifest Number Generated: " + tempManifestNo);
 
-		driver.findElement(okButtonBy).click();
+		findElement(okButtonBy).click();
 	}
 
 	/*
 	 * Confirmation: MRN/7347/KWI22 Has been Approved Successfully.
 	 */
 	private void approveConf() {
-		WebElement eManifestNo = driver.findElement(manifestNoBy);
+		WebElement eManifestNo = findElement(manifestNoBy);
 		manifestNo = eManifestNo.getText();
 
 		System.out.println("Manifest Number Generated: " + manifestNo);
 
-		driver.findElement(okButtonBy).click();
+		findElement(okButtonBy).click();
 	}
 
 	private void disclaimerConfirmation() {
@@ -119,89 +110,71 @@ public class ManifestInformationPage {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(chkJourneySubmitBy));
 
-		driver.findElement(chkJourneySubmitBy).click();
+		findElement(chkJourneySubmitBy).click();
 
-		driver.findElement(btnOkBy).click();
+		findElement(btnOkBy).click();
 		driver.switchTo().window(MainWindow);
 	}
 
-	private void switchToWindow() {
-		MainWindow = driver.getWindowHandle();
-//		System.out.println("Parent Winodow ID: " + MainWindow);
-		Set<String> s1 = driver.getWindowHandles();
-		Iterator<String> i1 = s1.iterator();// to fetch the value iterator() will return from the collection object
-
-		while (i1.hasNext()) { // loop if having some valu until loop will run
-			String ChildWindow = i1.next();
-
-			if (!MainWindow.equalsIgnoreCase(ChildWindow)) {
-//				System.out.println("Child Winodow ID: " + ChildWindow);
-				// Switching to Child window
-				driver.switchTo().window(ChildWindow);
-
-			}
-		}
-	}
-
 	private void setOriginPort() {
-		driver.findElement(originPortBy).sendKeys("TTA" + Keys.ENTER);
+		findElement(originPortBy).sendKeys("TTA" + Keys.ENTER);
 	}
 
 	private void selectExpectedArrivalDate() {
-		driver.findElement(expectedArrivalDateDatePickerBy).click();
-		driver.findElement(calenderCurrentDateBy).click();
+		findElement(expectedArrivalDateDatePickerBy).click();
+		findElement(calenderCurrentDateBy).click();
 	}
 
 	private void selectArrivaldate() {
-		driver.findElement(arrivaldateDatePickerBy).click();
-		driver.findElement(calenderCurrentDateBy).click();
+		findElement(arrivaldateDatePickerBy).click();
+		findElement(calenderCurrentDateBy).click();
 	}
 
 	private void setVesselName() {
-		driver.findElement(vesselNameBy).sendKeys("TNT" + Keys.ENTER);
+		findElement(vesselNameBy).sendKeys("TNT" + Keys.ENTER);
 	}
 
 	private void setFlightNo() {
-//		driver.findElement(flightNoBy).sendKeys(strFlightNo + Keys.ENTER);
+//		findElement(flightNoBy).sendKeys(strFlightNo + Keys.ENTER);
 
-		WebElement txtFlightNo=driver.findElement(flightNoBy);
+		WebElement txtFlightNo = findElement(flightNoBy);
 		Random rand = new Random();
 		int value = rand.nextInt(10000);
-		String flightNo = Integer.toString(value);
+		String number = Integer.toString(value);
 
-		txtFlightNo.sendKeys(flightNo+ Keys.ENTER);
-}
+		txtFlightNo.sendKeys(number + Keys.ENTER);
+	}
 
 	private void setRemarks() {
-		driver.findElement(remarksBy).sendKeys("Created By Selenium Automation For Testing");
+		findElement(remarksBy).sendKeys("Created By Selenium Automation For Testing");
 
 	}
 
 	private void setManualRemarks() {
 
-		driver.findElement(manualRemakrs).sendKeys("Submitted");
+		findElement(manualRemakrs).sendKeys("Submitted");
 	}
 
 	private void clickCreatebtn() {
-		driver.findElement(createbttnBy).click();
+		findElement(createbttnBy).click();
 	}
 
 	private void clickSubmitbtn() {
-		driver.findElement(submitManiestBy).click();
+		findElement(submitManiestBy).click();
 
 	}
 
 	private void clickApprovebtn() {
 
-		driver.findElement(approveBy).click();
+		findElement(approveBy).click();
 	}
 
 //	private void clickBackbtn() {
 //		((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 4000)", "");
-//		driver.findElement(backBy).clear();
+//		findElement(backBy).clear();
 //	}
 //	private void getError() {
-//		WebElement e=driver.findElement(errorBy);
+//		WebElement e=findElement(errorBy);
 //		System.out.println(e.getText());
 //	}
 }

@@ -1,11 +1,9 @@
 package smokeText;
 
-import java.awt.RenderingHints.Key;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -26,7 +24,7 @@ public class CargoModule {
 	public static void main(String[] args) {
 
 		setUP();
-		login("nas.csa", "fx5test");
+//		login("nas.csa", "fx5test");
 
 //		clickCargoMenu();
 //		createManifest("00007");

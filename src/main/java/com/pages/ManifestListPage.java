@@ -1,21 +1,23 @@
-package pages;
+package com.pages;
 
 import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.base.TestBase;
+
  
-@SuppressWarnings("unused")
-public class ManifestListPage {
-	protected WebDriver driver;
-	
-	private By menuLableBy=By.cssSelector("#MenuLabel_Vertical");
+//@SuppressWarnings("unused")
+public class ManifestListPage extends TestBase{
+	public ManifestListPage(WebDriver driver) {
+		this.driver = driver;
+	}
+	private By menuNavigateIconBy=By.cssSelector("#MenuLabel_Vertical");
 	private By mainMenuCargoBy=By.xpath("//div[@id='mainMenuItemVertical_Manifest' and @class='mainMenuItem_vertical']/a");
 	private By subMenuManifestBy=By.linkText("Manifest");
 	private By newButtonBy=By.xpath("//input[@id='new1' and @title='Create New Manifest']");
@@ -31,48 +33,40 @@ public class ManifestListPage {
 	
 	private By tempLinkBy=By.xpath("//tr[@id='List_journey_0_' and @class='DataGridItem_Row']/td[2]/a");
 	
-	
-	
-	public ManifestListPage(WebDriver driver) {
-		this.driver = driver;
-	}
-
 	public void clickCargoMenu() {
 		Actions act = new Actions(driver);
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.elementToBeClickable(menuLableBy));
+		wait.until(ExpectedConditions.elementToBeClickable(menuNavigateIconBy));
 
-		driver.findElement(menuLableBy).click();
+		findElement(menuNavigateIconBy).click();
 
-		WebElement eleMenu = driver.findElement(mainMenuCargoBy); // cssSelector("#mainMenuItemVertical_Manifest")
-		// Mouse over in Developers menu then click on Status sub menu.
-		act.moveToElement(eleMenu).build().perform();
+		act.moveToElement(findElement(mainMenuCargoBy)).build().perform();
 
-		driver.findElement(subMenuManifestBy).click();
+		findElement(subMenuManifestBy).click();
 
 	}
 	
 	public void searchWithCalender() {
-		driver.findElement(calenderBy).click();
-		driver.findElement(todayDateBy).click();
+		findElement(calenderBy).click();
+		findElement(todayDateBy).click();
 		
 	}
 	public void searchWithTempNo(String tempNo) {
-		driver.findElement(searchBy).click();
-		driver.findElement(tempMNFNoBy).sendKeys(tempNo+Keys.ENTER);	
+		findElement(searchBy).click();
+		findElement(tempMNFNoBy).sendKeys(tempNo+Keys.ENTER);	
 		
 //		driver.findElement(tempMNFNoBy).sendKeys(tempNo);
 //		driver.findElement(searchbtnBy).click();
 	}
 	public void seachWithManifestNo(String strManifestNo) {
-		driver.findElement(searchBy).click();
-		driver.findElement(manifestNoBy).sendKeys(strManifestNo+Keys.ENTER);
+		findElement(searchBy).click();
+		findElement(manifestNoBy).sendKeys(strManifestNo+Keys.ENTER);
 	}
 	public void clickTempNo() {
-		driver.findElement(tempLinkBy).click();
+		findElement(tempLinkBy).click();
 	}
 	public void clickNew() {
 //		Click on new button 
-		driver.findElement(newButtonBy).click();
+		findElement(newButtonBy).click();
 	}
 }

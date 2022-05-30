@@ -39,14 +39,17 @@ public class CustomsBayanPage extends TestBase {
 	private void selectImporter() {
 		findElement(consigneebrowsebuttonBy).click();
 		switchToWindow();
+		waitForElementToBeVisible(peopleBy);
 		findElement(peopleBy).click();
 		findElement(firstNameBy).sendKeys("AGILITY PWC" + Keys.ENTER);
+		waitForElementToBeVisible(peopleDetails_0_FirstNameBy);
 		findElement(peopleDetails_0_FirstNameBy).click();
 		driver.switchTo().window(MainWindow);
 	}
 
 	private String getTempDeclNumber() {
 		tempDeclarationNo=findElement(tempDeclNumberBy).getText();
+		System.out.println(tempDeclarationNo);
 		return tempDeclarationNo;
 	}
 }

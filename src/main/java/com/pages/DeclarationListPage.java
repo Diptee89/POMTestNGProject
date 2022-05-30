@@ -26,7 +26,7 @@ public class DeclarationListPage extends TestBase {
 	private By declarationNoBy=By.name("SADNo");
 	private By searchBy=By.xpath("//input[@title='Search']");
 	
-	private By listDeclaration_0_TempDeclNumberBy=By.xpath("//td[@id='List_ListDeclaration_0_TempDeclNumber']/a");
+	private By listDeclaration_0_TempDeclNumberBy=By.xpath("//td[@id='List_ListDeclaration_0_TempDeclNumber' and @class='mcontent-text']/a");
 
 		
 	public void clickDeclarationSubMenu() {
@@ -44,15 +44,13 @@ public class DeclarationListPage extends TestBase {
 		driver.findElement(subMenuDeclarationBy).click();
 
 	}
-	public void searchByTempDec() {
+	public void searchByTempDec(String strTempDecNo) {
 		findElement(parent_frmSearchDiv_SearchBy).click();
 //		findElement(tempDeclarationNoBy).sendKeys(tempDeclarationNo+Keys.ENTER);
-		findElement(tempDeclarationNoBy).sendKeys("TIM/29636/KWI22"+Keys.ENTER);
-	}
+//		findElement(tempDeclarationNoBy).sendKeys("TIM/29636/KWI22"+Keys.ENTER);
+		findElement(tempDeclarationNoBy).sendKeys(strTempDecNo+Keys.ENTER);
+		}
 	public void clickTempNo() {
-		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.elementToBeClickable(listDeclaration_0_TempDeclNumberBy));
-
 		findElement(listDeclaration_0_TempDeclNumberBy).click();
 	}
 }

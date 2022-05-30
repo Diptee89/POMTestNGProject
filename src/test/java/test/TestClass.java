@@ -70,17 +70,27 @@ public class TestClass extends TestBase {
 		ImportPage objImp=new ImportPage(driver);
 
 		login("broker.kwi", "fx5test");
-//		objPendingDOList.clickPendingDOSubMenu();
-//		objPendingDOList.searchWithDO();
-//		objPendingDOList.clickDeclare();
-//		objBayan.createBayan();
+//		Declare DO & Create Import Bayan
+		objPendingDOList.clickPendingDOSubMenu();
+		objPendingDOList.searchWithDO("DO/54875/KWI22"); //doNumber 
+		objPendingDOList.clickDeclare();
 		
-		objDecList.clickDeclarationSubMenu();
-		objDecList.searchByTempDec();
-		objDecList.clickTempNo();
+		objBayan.createBayan();
 		
-		objImp.clickEdit();
+//		Edit Created Bayan from Declaration list screen4';u		
+//		objDecList.clickDeclarationSubMenu();
+//		objDecList.searchByTempDec("TIM/29636/KWI22");//tempDeclarationNo
+//		objDecList.clickTempNo();
+//		
+//		objImp.clickEdit();
 		objImp.requiredDocuments();
+		objImp.addDeclarationVehiclesList();
+		objImp.addInvoice();
+		objImp.addItems();
+		objImp.calculateDuty();
+		objImp.addPaymentInformation();
+		objImp.submitDeclaration();
+		logOut();
 	}
 
 //	@AfterTest

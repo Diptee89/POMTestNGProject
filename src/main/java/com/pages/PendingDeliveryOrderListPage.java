@@ -37,10 +37,11 @@ public class PendingDeliveryOrderListPage extends TestBase {
 		act.moveToElement(findElement(mainMenuDeclarationBy)).build().perform();
 	}
 
-	public void searchWithDO() {
+	public void searchWithDO(String strDONumber) {
 		findElement(frmSearchDiv_SearchBy).click();
 //		findElement(DONoBy).sendKeys(doNumber + Keys.ENTER);
-		findElement(DONoBy).sendKeys("DO/54872/KWI22" + Keys.ENTER);
+//		findElement(DONoBy).sendKeys("DO/54873/KWI22" + Keys.ENTER);
+		findElement(DONoBy).sendKeys(strDONumber + Keys.ENTER);
 	}
 
 	public void clickDeclare() {

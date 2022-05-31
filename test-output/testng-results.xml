@@ -2,37 +2,26 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-05-26T15:15:29 IST" name="Default suite" finished-at="2022-05-26T15:17:18 IST" duration-ms="108723">
+  <suite started-at="2022-05-30T18:10:28 IST" name="Default suite" finished-at="2022-05-30T18:11:15 IST" duration-ms="47590">
     <groups>
     </groups>
-    <test started-at="2022-05-26T15:15:29 IST" name="Default test" finished-at="2022-05-26T15:17:18 IST" duration-ms="108723">
+    <test started-at="2022-05-30T18:10:28 IST" name="Default test" finished-at="2022-05-30T18:11:15 IST" duration-ms="47590">
       <class name="test.TestClass">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:test.TestClass@342c38f8]" started-at="2022-05-26T15:15:29 IST" name="setUp" finished-at="2022-05-26T15:15:44 IST" duration-ms="14631" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:test.TestClass@d5b810e]" started-at="2022-05-30T18:10:28 IST" name="setUp" finished-at="2022-05-30T18:10:34 IST" duration-ms="6056" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testBayan()[pri:0, instance:test.TestClass@342c38f8]" started-at="2022-05-26T15:15:44 IST" name="testBayan" finished-at="2022-05-26T15:17:18 IST" duration-ms="93969" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
+        <test-method signature="testBayan()[pri:1, instance:test.TestClass@d5b810e]" started-at="2022-05-30T18:10:34 IST" name="testBayan" finished-at="2022-05-30T18:11:15 IST" duration-ms="41500" status="FAIL">
+          <exception class="java.lang.IllegalArgumentException">
             <message>
-              <![CDATA[Expected condition failed: waiting for visibility of element located by By.id: SaveContainers (tried for 15 second(s) with 500 milliseconds interval)
-Build info: version: '4.1.4', revision: '535d840ee2'
-System info: host: 'INHYDLDSINGH2', ip: '10.138.118.43', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.15'
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.edgechromium: false, ie.edgepath: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:50275/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 23a20cb5-bd64-4b4d-a5df-765ae7a713c2]]>
+              <![CDATA[keyDown argument must be an instanceof Keys: SHUAIBA]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.id: SaveContainers (tried for 15 second(s) with 500 milliseconds interval)
-Build info: version: '4.1.4', revision: '535d840ee2'
-System info: host: 'INHYDLDSINGH2', ip: '10.138.118.43', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.15'
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.edgechromium: false, ie.edgepath: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:50275/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 23a20cb5-bd64-4b4d-a5df-765ae7a713c2
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-at com.base.TestBase.waitForElementToBeVisible(TestBase.java:170)
-at com.pages.ImportPage.addDeclarationVehiclesList(ImportPage.java:139)
-at test.TestClass.testBayan(TestClass.java:85)
+              <![CDATA[java.lang.IllegalArgumentException: keyDown argument must be an instanceof Keys: SHUAIBA
+at org.openqa.selenium.interactions.Actions.asKeys(Actions.java:196)
+at org.openqa.selenium.interactions.Actions.keyDown(Actions.java:92)
+at com.pages.ImportPage.selectExitPort(ImportPage.java:150)
+at test.TestClass.testBayan(TestClass.java:91)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -63,7 +52,7 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          </exception> <!-- java.lang.IllegalArgumentException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testBayan -->

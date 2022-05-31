@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\dsingh\AppData\Local\Temp\testng-eclipse--1509129184\testng-customsuite.xml</span>
+                    <span>C:\Users\dsingh\AppData\Local\Temp\testng-eclipse-1993202814\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -130,17 +130,11 @@
                   <a name="testBayan">
                   </a> <!-- testBayan -->
                   <span class="method-name">testBayan</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.id: SaveContainers (tried for 15 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.1.4&apos;, revision: &apos;535d840ee2&apos;
-System info: host: &apos;INHYDLDSINGH2&apos;, ip: &apos;10.138.118.43&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.15&apos;
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.edgechromium: false, ie.edgepath: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:50275/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 23a20cb5-bd64-4b4d-a5df-765ae7a713c2
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-	at com.base.TestBase.waitForElementToBeVisible(TestBase.java:170)
-	at com.pages.ImportPage.addDeclarationVehiclesList(ImportPage.java:139)
-	at test.TestClass.testBayan(TestClass.java:85)
+                  <div class="stack-trace">java.lang.IllegalArgumentException: keyDown argument must be an instanceof Keys: SHUAIBA
+	at org.openqa.selenium.interactions.Actions.asKeys(Actions.java:196)
+	at org.openqa.selenium.interactions.Actions.keyDown(Actions.java:92)
+	at com.pages.ImportPage.selectExitPort(ImportPage.java:150)
+	at test.TestClass.testBayan(TestClass.java:91)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -178,7 +172,7 @@ Session ID: 23a20cb5-bd64-4b4d-a5df-765ae7a713c2
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\dsingh\AppData\Local\Temp\testng-eclipse--1509129184\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\dsingh\AppData\Local\Temp\testng-eclipse-1993202814\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -231,12 +225,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testBayan')
 data.setCell(0, 2, 'test.TestClass')
-data.setCell(0, 3, 93969);
+data.setCell(0, 3, 41500);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 41 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -271,7 +265,7 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">testBayan</span>
-                <span class="method-start">14723 ms</span>
+                <span class="method-start">6075 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

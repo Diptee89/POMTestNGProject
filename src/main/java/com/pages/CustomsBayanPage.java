@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.Select;
 import com.base.TestBase;
 
 public class CustomsBayanPage extends TestBase {
+	
+	public String tempDeclarationNo;
 	public CustomsBayanPage(WebDriver driver) {
 		this.driver = driver;
 	}

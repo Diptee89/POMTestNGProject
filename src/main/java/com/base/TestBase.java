@@ -28,20 +28,16 @@ import com.pages.LoginPage;
 //import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
-	protected String MainWindow;
-	protected WebDriver driver;
-
-	protected String tempManifestNo;
-	protected String manifestNo;
-	protected String doNumber;
-	protected String tempDeclarationNo;
-
+	public String MainWindow;
+	public WebDriver driver;
 	public WebDriver openIE() {
 		System.setProperty("webdriver.ie.driver", "c:\\Drivers\\IEDriverServer.exe");
 //		WebDriverManager.iedriver().setup();
 		driver = new InternetExplorerDriver();
+		driver.manage().deleteAllCookies();
 		return driver;
 	}
+
 //    Login 
 	public void login(String id, String pass) {
 		this.switchToWindow();
@@ -54,6 +50,7 @@ public class TestBase {
 		LogOutPage objLogOut = new LogOutPage(driver);
 		objLogOut.logOutUser();
 	}
+
 //     Element utils
 	public WebElement findElement(By by) {
 		waitForElementToBeVisible(by);
@@ -153,7 +150,6 @@ public class TestBase {
 		driver.navigate().to(url);
 	}
 
-	
 //  Wait utils	
 	/**
 	 * An expectation for checking that an element is present on the DOM of a page
@@ -174,12 +170,11 @@ public class TestBase {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		return wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameLocator));
 	}
-	
+
 	public Alert waitForAlert(int timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
 		return wait.until(ExpectedConditions.alertIsPresent());
 	}
-
 
 	// ************************Drop Down Utils********************//
 	public void doSelectByVisibleText(By locator, String text) {
@@ -215,6 +210,20 @@ public class TestBase {
 		List<WebElement> optionsList = select.getOptions();
 		for (WebElement e : optionsList) {
 			String text = e.getText();
+			if (text.equals(value)) {
+				e.click();
+				break;
+			}
+		}
+	}
+
+	public void doSelectWithoutSelect(By locator, String value) {
+		driver.findElement(By.id("drpGatePassCategory")).click();
+		List<WebElement> list = findElements(locator);
+
+		for (WebElement e : list) {
+			String text = e.getText();
+			System.out.println(text);
 			if (text.equals(value)) {
 				e.click();
 				break;

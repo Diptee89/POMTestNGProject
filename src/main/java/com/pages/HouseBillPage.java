@@ -28,7 +28,6 @@ public class HouseBillPage extends TestBase{
 	private By tquantityManifestedBy = By.id("Tquantitymanifested");
 	private By originPortBy = By.id("OriginPort");
 	private By createBy = By.cssSelector("#submit10[title='Create'][class='mcbutton']");
-	private By backBy = By.cssSelector("#cancel[value='Back']");
 
 
 	public void createBL() {
@@ -42,7 +41,8 @@ public class HouseBillPage extends TestBase{
 		findElement(tquantityManifestedBy).sendKeys("100" + Keys.TAB);
 		findElement(originPortBy).sendKeys("%%" + Keys.TAB);
 		findElement(createBy).click();
-		findElement(backBy).click();
+		
+		doClick(By.cssSelector("#cancel[value='Back']"));
 	}
 
 	private void clickNew() {

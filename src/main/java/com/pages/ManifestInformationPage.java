@@ -13,6 +13,11 @@ import com.base.TestBase;
 
 //@SuppressWarnings("unused")
 public class ManifestInformationPage extends TestBase {
+	
+	public String tempManifestNo;
+	public String manifestNo;
+	public String doNumber;
+	
 	public ManifestInformationPage(WebDriver driver) {
 		this.driver = driver;
 	}

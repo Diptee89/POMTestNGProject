@@ -3,13 +3,12 @@ package com.pages;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.base.TestBase;
 
@@ -68,6 +67,7 @@ public class ImportPage extends TestBase {
 	private By declarationVehiclesListlnkBy = By.id("DeclarationVehicles");
 	private By NewBtnBy = By.id("NewBtn");
 	private By drpGatePassCategoryBy = By.id("drpGatePassCategory");
+//	private By drpGatePassCategoryOptionBy = By.xpath("//select[@id='drpGatePassCategory']/option[2]");
 	private By drpCargoTypeBy = By.id("drpCargoType");
 	private By drpTruckNCarrierSizeBy = By.id("drpTruckNCarrierSize");
 	private By PN_Num1By = By.id("PN_Num1");
@@ -113,19 +113,14 @@ public class ImportPage extends TestBase {
 		switchToWindow();
 		findElement(NewBtnBy).click();
 
-//		Select selectGatePassCategory=new Select(findElement(drpGatePassCategoryBy));
-//		selectGatePassCategory.selectByVisibleText("General loads");
 
-//		Select selectCargoType=new Select(findElement(drpCargoTypeBy));
-//		selectCargoType.selectByVisibleText("General Cargo");
-
-//		Select selectCarrier_Size=new Select(findElement(drpTruckNCarrierSizeBy));
-//		selectCarrier_Size.selectByVisibleText("Half Lorry");
-
-//		doSelectByVisibleText(drpGatePassCategoryBy, "General loads");//332293540
-		doSelectByValue(drpGatePassCategoryBy, "332293540");
+		doSelectByVisibleText(drpGatePassCategoryBy, "General loads");//332293540		
+//		doSelectByValue(drpGatePassCategoryBy, "332293540");
 		doSelectByVisibleText(drpCargoTypeBy, "General Cargo");
 		doSelectByVisibleText(drpTruckNCarrierSizeBy, "Half Lorry");
+		
+//		doActionsClick(drpGatePassCategoryBy);
+//		doActionsClick(drpGatePassCategoryOptionBy);
 
 		findElement(PN_Num1By).sendKeys("91");
 		findElement(PN_LONGNBy).sendKeys("202298765");
@@ -140,6 +135,24 @@ public class ImportPage extends TestBase {
 		driver.switchTo().window(MainWindow);
 
 	}
+	
+	public void selectExitPort() {
+//		doClick(By.xpath("//td[@id='ExitportName']/select"));
+//		doClick(By.xpath("//td[@id='ExitportName']/select/option[3]"));
+
+		Actions act=new Actions(driver);
+		WebElement exitPort = driver.findElement(By.id("dldExitportName"));
+
+//		exitPort.click();
+		
+		act.click(exitPort)
+		.perform();
+		act.keyDown("SHUAIBA").perform();
+		
+//		Select select = new Select(exitPort);
+//		select.selectByVisibleText("SHUAIBA");
+//		doSelectByVisibleText(By.xpath("//td[@id='ExitportName']/select"), "SHUAIBA");
+	}
 
 //	Invoice Details -->Invoice Information
 
@@ -149,7 +162,7 @@ public class ImportPage extends TestBase {
 		doClick(By.id("orderdateDatePicker"));
 		doClick(By.id("Fx50CalenderCurrentDate"));
 
-		doSendKeys(By.id("SupplierName"), MainWindow);
+		doSendKeys(By.id("SupplierName"), "Alex md");
 
 		doSendKeys(By.id("currency"), "KWD");
 		doSendKeys(By.id("country"), "SA");
@@ -167,10 +180,13 @@ public class ImportPage extends TestBase {
 		doSendKeys(By.id("Manufacturer"), "Alex MD");
 		doSendKeys(By.id("totalprice"), "100");
 		doSendKeys(By.id("noofpackages"), "100");
-		findElement(By.id("txtpackagetype")).sendKeys("Piece" + Keys.ENTER);
-		switchToWindow();
+//		Browse and Select Package Type
+		doClick(By.id("btnPackageType"));
+		switchToWindow();		
+		findElement(By.name("Name")).sendKeys("Piece"+Keys.ENTER);
 		doClick(By.xpath("//td[@id='List_PackageTypeLsPg_0_Description']/a"));
 		driver.switchTo().window(MainWindow);
+		
 		doSendKeys(By.id("quantity"), "100");
 		doSendKeys(By.id("weight"), "100");
 		doSendKeys(By.id("Gross1"), "100");

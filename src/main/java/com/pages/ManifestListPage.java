@@ -51,11 +51,10 @@ public class ManifestListPage extends TestBase{
 		findElement(todayDateBy).click();
 		
 	}
-	public void searchWithTempNo(String tempNo) {
+	public void searchWithTempNo(String strTempNo) {
 		findElement(searchBy).click();
-		findElement(tempMNFNoBy).sendKeys(tempNo+Keys.ENTER);	
+		doSendKeys(tempMNFNoBy, strTempNo+Keys.ENTER);
 		
-//		driver.findElement(tempMNFNoBy).sendKeys(tempNo);
 //		driver.findElement(searchbtnBy).click();
 	}
 	public void seachWithManifestNo(String strManifestNo) {

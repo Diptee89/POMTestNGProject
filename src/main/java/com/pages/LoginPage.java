@@ -58,6 +58,7 @@ public class LoginPage extends TestBase {
 
 	private void setPassword(String strPassword) {
 		findElement(passwordBy).click();
+//		findElement(passwordBy).sendKeys(strPassword);
 	}
 
 	private void clickLogin() {
